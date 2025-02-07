@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Seebooks - TIERRA INHABITABLE</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../icon.svg">
+    <style>
+        :root {
+            --bookcolor: #a5ba80;
+            --titlecolor: #283d2b;
+            --itemcolor: #fff;
+            --itembgcolor: #4d652b;
+        }
+        
+        .item-book.xn {
+            background-color: var(--bookcolor);
+            border: 1px solid var(--bookcolor);
+        }
+        
+        .xn-title {
+            color: var(--titlecolor);
+        }
+        
+        .xn-item {
+            background-color: var(--itembgcolor);
+            color: var(--itemcolor);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-title bgnormal xn">
+            <img class="xn" src="../icon.svg">
+            <div class="title t15 xn">Seebooks</div>
+        </div>
+        <div class="books-items" style="display: table;">
+            <div class="item-book xn"></div>
+            <div class="item-details">
+                <div class="xn-title t30">TIERRA INHABITABLE</div>
+                <div class="t30">Momentos inevitables para esta historia.</div>
+                <div class="xn-autor t30">Seebooks</div>
+                <div class="xn-items t30">
+                    <div class="xn-item">Ciencia ficción</div>
+                </div>
+                <br>
+                <b class="t30">Sinopsis de TIERRA INHABITABLE</b><br>
+                <div class="xn-description t30">
+                    Este libro refleja momentos en las cuales las personas
+                    son testigos de como algo sobrenatural esta pasando en
+                    las calles, tormentado a familias, no se trata de pura
+                    desgracias, al menos estas personas pueden tener
+                    esperanza de que todo termine.
+                </div>
+            </div>
+        </div>
+        <button class="preview t30">LEER PRIMERAS PÁGINAS</button>
+        <b class="xn-s t30">Ficha técnica</b>
+        <div class="xn-c">
+            <table class="t30">
+                <tr>
+                    <th>Editorial:</th>
+                    <td>Seebooks</td>
+                    <th>Formato:</th>
+                    <td>Preview</td>
+                </tr>
+                <tr>
+                    <th>Idioma:</th>
+                    <td>Español</td>
+                    <th>Numero de serie:</th>
+                    <td>25380900</td>
+                </tr>
+                <tr>
+                    <th>Fecha de lanzamiento:</th>
+                    <td>01/28/2025</td>
+                </tr>
+            </table>
+        </div>
+        <div class="separate"></div>
+        <div class="books-filter">
+            <div class="container-book xn-preview">
+                <div class="container-options">
+                    <div class="options">
+                        <button class="increase preview xn-option" style="background-image: url(../preview/increase.svg)"></button>
+                        <button class="decrement preview xn-option" style="background-image: url(../preview/decrement.svg)"></button>
+                        <button class="close preview xn-option" style="background-image: url(../preview/close.svg)"></button>
+                    </div>
+                </div>
+                <img class="page" src="pages/A78bc951.png">
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector(".item-book.xn").style.backgroundImage=
+            `url(../../${(document.location.href).match(/(Seebooks\/[^\/]+\/)/)[0]}/book.png)`;
+        document.querySelector(".preview").onclick= function(){
+            document.querySelector(".books-filter").style.display= "block";
+        };
+        document.querySelector("button.increase").onclick= function(){
+            document.querySelector(".page").classList.add("view");
+        };
+        document.querySelector("button.decrement").onclick= function(){
+            document.querySelector(".page").classList.remove("view");
+        }
+        document.querySelector("button.close").onclick= function(){
+            document.querySelector(".books-filter").style.display= "";
+        }
+        console.log(`${/\/(.*?)\//.exec((document.location.href).match(/(Seebooks\/[^\/]+\/)/)[0])[1]}1`);
+    </script>
